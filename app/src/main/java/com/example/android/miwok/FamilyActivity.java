@@ -10,16 +10,16 @@ import java.util.Arrays;
 public class FamilyActivity extends AppCompatActivity {
 
     ArrayList<Word> words = new ArrayList<>(
-            Arrays.asList(new Word("әpә","father"),
-                    new Word("әṭa","mother"),
-                    new Word("angsi","son"),
-                    new Word("tune","daughter"),
-                    new Word("taachi","older brother"),
-                    new Word("chalitti","younger brother"),
-                    new Word("teṭe","older sister"),
-                    new Word("kolliti","younger sister"),
-                    new Word("ama","grandmother"),
-                    new Word("paapa","grandfather")
+            Arrays.asList(new Word("әpә","father",R.drawable.family_father),
+                    new Word("әṭa","mother",R.drawable.family_mother),
+                    new Word("angsi","son",R.drawable.family_son),
+                    new Word("tune","daughter",R.drawable.family_daughter),
+                    new Word("taachi","older brother",R.drawable.family_older_brother),
+                    new Word("chalitti","younger brother",R.drawable.family_younger_brother),
+                    new Word("teṭe","older sister",R.drawable.family_older_sister),
+                    new Word("kolliti","younger sister",R.drawable.family_younger_sister),
+                    new Word("ama","grandmother",R.drawable.family_grandmother),
+                    new Word("paapa","grandfather",R.drawable.family_grandfather)
             ));
 
     @Override

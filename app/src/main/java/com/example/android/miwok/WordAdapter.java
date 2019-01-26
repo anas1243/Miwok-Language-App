@@ -40,6 +40,14 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // set this text on the number TextView
         defaultTextView.setText(currentWord.getDefaultTranslation());
 
+        ImageView wordImage = listItemView.findViewById(R.id.wordImage);
+
+        if (currentWord.getImageResorceId() == 0) {
+            wordImage.setVisibility(View.GONE);
+        }else {
+            wordImage.setImageResource(currentWord.getImageResorceId());
+        }
+
         return listItemView;
     }
 }
