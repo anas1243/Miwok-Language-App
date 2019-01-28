@@ -17,10 +17,6 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
     private int mListColor;
-    private MediaPlayer mediaPlayer;
-    private int audioID;
-    private ListView masterListView;
-
 
     public WordAdapter(Context context, ArrayList<Word> words, int ListColor) {
 
@@ -35,9 +31,8 @@ public class WordAdapter extends ArrayAdapter<Word> {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
         }
-        //Get the ID of the master listView
-        masterListView = parent.findViewById(R.id.list);
 
+        //Get the ID of the master listView
         listItemView.findViewById(R.id.wordContainer)
                 .setBackgroundColor(ContextCompat.getColor(getContext(), mListColor));
 
@@ -67,21 +62,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
             wordImage.setVisibility(View.GONE);
         }
 
-        listenForItemClickEvent();
-
-
         return listItemView;
-    }
-
-    private void listenForItemClickEvent() {
-        masterListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                audioID = getItem(position).getAudioResorceId();
-                mediaPlayer = MediaPlayer.create(getContext(), audioID);
-                mediaPlayer.start();
-            }
-        });
-
     }
 }
