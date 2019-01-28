@@ -10,14 +10,22 @@ import java.util.Arrays;
 public class ColorsActivity extends AppCompatActivity {
 
     ArrayList<Word> words = new ArrayList<>(
-            Arrays.asList(new Word("weṭeṭṭi", "red", R.drawable.color_red),
-                    new Word("chokokki", "green", R.drawable.color_green),
-                    new Word("ṭakaakki", "brown", R.drawable.color_brown),
-                    new Word("ṭopoppi", "gray", R.drawable.color_gray),
-                    new Word("kululli", "black", R.drawable.color_black),
-                    new Word("kelelli", "white", R.drawable.color_white),
-                    new Word("ṭopiisә", "dusty yellow", R.drawable.color_dusty_yellow),
-                    new Word("chiwiiṭә", "mustard yellow", R.drawable.color_mustard_yellow)
+            Arrays.asList(new Word("weṭeṭṭi", "red",
+                            R.drawable.color_red, R.raw.color_red),
+                    new Word("chokokki", "green",
+                            R.drawable.color_green, R.raw.color_green),
+                    new Word("ṭakaakki", "brown",
+                            R.drawable.color_brown, R.raw.color_brown),
+                    new Word("ṭopoppi", "gray",
+                            R.drawable.color_gray, R.raw.color_gray),
+                    new Word("kululli", "black",
+                            R.drawable.color_black, R.raw.color_black),
+                    new Word("kelelli", "white",
+                            R.drawable.color_white, R.raw.color_white),
+                    new Word("ṭopiisә", "dusty yellow",
+                            R.drawable.color_dusty_yellow, R.raw.color_dusty_yellow),
+                    new Word("chiwiiṭә", "mustard yellow",
+                            R.drawable.color_mustard_yellow, R.raw.color_mustard_yellow)
             ));
 
     @Override
