@@ -13,7 +13,13 @@ import java.util.Arrays;
 public class ColorsActivity extends AppCompatActivity {
 
     private int audioID;
-    private MediaPlayer mediaPlayer;
+    private MediaPlayer mMediaPlayer;
+    private MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
+        }
+    };
 
     ArrayList<Word> words = new ArrayList<>(
             Arrays.asList(new Word("weṭeṭṭi", "red",
@@ -35,6 +41,12 @@ public class ColorsActivity extends AppCompatActivity {
             ));
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
@@ -46,11 +58,27 @@ public class ColorsActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                releaseMediaPlayer();
                 audioID = words.get(position).getAudioResorceId();
-                mediaPlayer = MediaPlayer.create(ColorsActivity.this, audioID);
-                mediaPlayer.start();
+                mMediaPlayer = MediaPlayer.create(ColorsActivity.this, audioID);
+                mMediaPlayer.start();
+                mMediaPlayer.setOnCompletionListener(onCompletionListener);
             }
         });
 
+    }
+
+    private void releaseMediaPlayer() {
+        // If the media player is not null, then it may be currently playing a sound.
+        if (mMediaPlayer != null) {
+            // Regardless of the current state of the media player, release its resources
+            // because we no longer need it.
+            mMediaPlayer.release();
+
+            // Set the media player back to null. For our code, we've decided that
+            // setting the media player to null is an easy way to tell that the media player
+            // is not configured to play an audio file at the moment.
+            mMediaPlayer = null;
+        }
     }
 }

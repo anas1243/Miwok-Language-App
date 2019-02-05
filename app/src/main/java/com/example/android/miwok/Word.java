@@ -9,7 +9,7 @@ public class Word {
     private int audioResorceId;
 
 
-    public Word(String miwokTranslation, String defaultTranslation, int imageResorceId,int audioResorceId) {
+    public Word(String miwokTranslation, String defaultTranslation, int imageResorceId, int audioResorceId) {
 
         this.miwokTranslation = miwokTranslation;
         this.defaultTranslation = defaultTranslation;
@@ -42,5 +42,15 @@ public class Word {
 
     public int getAudioResorceId() {
         return audioResorceId;
+    }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "miwokTranslation='" + miwokTranslation + '\'' +
+                ", defaultTranslation='" + defaultTranslation + '\'' +
+                ", imageResorceId=" + imageResorceId +
+                ", audioResorceId=" + audioResorceId +
+                '}';
     }
 }
