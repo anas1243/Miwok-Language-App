@@ -32,6 +32,9 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
+        //Add the up button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         final ArrayList<Word> words = new ArrayList<>(
                 Arrays.asList(new Word("lutti", "one"
                                 , R.drawable.number_one, R.raw.number_one),

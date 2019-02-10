@@ -55,6 +55,9 @@ public class FamilyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
+        //Add the up button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         WordAdapter itemsAdapter = new WordAdapter(this, words, R.color.category_family);
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
